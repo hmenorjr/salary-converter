@@ -1,12 +1,9 @@
 document.getElementById("convertButton").addEventListener("click", function () {
-  const initialSalary = parseFloat(document.getElementById("initialSalary").value);
-  const specifiedYear = parseInt(document.getElementById("specifiedYear").value);
-  const currentYear = new Date().getFullYear();
-  const inflationRate = 0.03; // Adjust this as needed
+  const monthlySalary = parseFloat(document.getElementById("initialSalary").value);
+  const workHoursPerMonth = 160; // Assuming 40-hour workweek and 4 weeks in a month
 
-  const yearsPassed = currentYear - specifiedYear;
-  const adjustedSalary = initialSalary * Math.pow(1 + inflationRate, yearsPassed);
+  const hourlyRate = monthlySalary / workHoursPerMonth;
 
   const resultElement = document.getElementById("result");
-  resultElement.textContent = `Equivalent Salary in ${currentYear}: $${adjustedSalary.toFixed(2)}`;
+  resultElement.textContent = `Hourly Rate: $${hourlyRate.toFixed(2)}`;
 });
